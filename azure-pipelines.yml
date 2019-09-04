@@ -30,7 +30,7 @@ stages:
       displayName: 'First step in building the integration infrastructure'
       vmImage: 'Ubuntu-16.04'
       resourceGroupName: integration
-      subscription: $(subscription)
+      subscription: $(details)
 
 - stage: deploy_app_service_to_integration
   displayName: 'Deploy the app service to the integration environment'
@@ -42,7 +42,7 @@ stages:
     steps:
     - task: AzureResourceGroupDeployment@2
       inputs:
-        azureSubscription: '$(subscription)'
+        azureSubscription: '$(details)'
         action: 'Create Or Update Resource Group'
         resourceGroupName: 'integration-rg'
         location: 'UK South'
@@ -83,7 +83,7 @@ stages:
       displayName: 'First step in building the test infrastructure'
       vmImage: 'Ubuntu-16.04'
       resourceGroupName: testing
-      subscription: $(subscription)
+      subscription: $(details)
 
 - stage: deploy_app_service_to_test
   displayName: 'Deploy the app service to the test environment'
@@ -95,7 +95,7 @@ stages:
     steps:
     - task: AzureResourceGroupDeployment@2
       inputs:
-        azureSubscription: '$(subscription)'
+        azureSubscription: '$(details)'
         action: 'Create Or Update Resource Group'
         resourceGroupName: 'test-rg'
         location: 'UK South'
@@ -125,7 +125,7 @@ stages:
       displayName: 'First step in building the demo infrastructure'
       vmImage: 'Ubuntu-16.04'
       resourceGroupName: demonstration
-      subscription: $(subscription)
+      subscription: $(details)
 
 - stage: deploy_to_demo
   displayName: 'Deploy the website to the demo environment'
