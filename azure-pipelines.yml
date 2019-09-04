@@ -7,7 +7,7 @@ trigger:
 - master
 
 variables:
-  subscription: $(subscription)
+  subscription: '$(subscription)'
 
 stages:
 - stage: build
