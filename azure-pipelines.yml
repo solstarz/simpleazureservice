@@ -7,7 +7,7 @@ trigger:
 - master
 
 variables:
-  subscription: $(subscription)
+  subscription: 'Visual Studio Enterprise JP – MPN(e4a900c1-5320-4f8a-8f76-c3ac00fb25c0)'
 
 stages:
 - stage: build
